@@ -412,7 +412,7 @@
                     <!-- header-dashboard -->
                     @include('admin.parts.navbar')
                     <!-- /header-dashboard -->
-
+                    @yield('content')
                     <!-- /main-content -->
                 </div>
                 <!-- /section-content-right -->
