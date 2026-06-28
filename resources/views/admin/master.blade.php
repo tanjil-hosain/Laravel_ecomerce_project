@@ -67,7 +67,7 @@
         </div>
         <!-- /#page -->
     </div>
-    <!-- /#wrapper -->
+    @include('admin.parts.footer')
 
     <!-- Javascript -->
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
