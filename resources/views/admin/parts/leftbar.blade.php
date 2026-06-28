@@ -92,7 +92,7 @@
                                                 </a>
                                             </li>
                                             <li class="sub-menu-item">
-                                                <a href="product-list.html" class="">
+                                                <a href="{{route('category.index')}}" class="">
                                                     <div class="text">Category List</div>
                                                 </a>
                                             </li>
