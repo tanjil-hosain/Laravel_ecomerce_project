@@ -1,130 +1,110 @@
 @extends('admin.master')
 
 @section('content')
-    <!-- main-content -->
-    <div class="main-content">
-        <!-- main-content-wrap -->
-        <div class="main-content-inner">
-            <!-- main-content-wrap -->
-            <div class="main-content-wrap">
-                <div class="tf-section-4 mb-30">
-                    <!-- chart-default -->
-                    <div class="wg-chart-default">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap14">
-                                <div class="image type-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="52" viewBox="0 0 48 52"
-                                        fill="none">
-                                        <path
-                                            d="M19.1094 2.12943C22.2034 0.343099 26.0154 0.343099 29.1094 2.12943L42.4921 9.85592C45.5861 11.6423 47.4921 14.9435 47.4921 18.5162V33.9692C47.4921 37.5418 45.5861 40.8431 42.4921 42.6294L29.1094 50.3559C26.0154 52.1423 22.2034 52.1423 19.1094 50.3559L5.72669 42.6294C2.63268 40.8431 0.726688 37.5418 0.726688 33.9692V18.5162C0.726688 14.9435 2.63268 11.6423 5.72669 9.85592L19.1094 2.12943Z"
-                                            fill="#22C55E" />
-                                    </svg>
-                                    <i class="icon-shopping-bag"></i>
-                                </div>
-                                <div>
-                                    <div class="body-text mb-2">Total Sales</div>
-                                    <h4>34,945</h4>
-                                </div>
-                            </div>
-                            <div class="box-icon-trending up">
-                                <i class="icon-trending-up"></i>
-                                <div class="body-title number">1.56%</div>
-                            </div>
-                        </div>
-                        <div class="wrap-chart">
-                            <div id="line-chart-1"></div>
-                        </div>
+    <main class="dashboard-content">
+        <div class="container-fluid px-3 px-lg-4 py-4">
+            <div class="page-heading">
+                <div class="page-heading-copy">
+                    <span class="page-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
+                    <div>
+                        <p class="eyebrow mb-1">Overview</p>
+                        <h1 class="h3 mb-1">Dashboard</h1>
+                        <p class="text-muted mb-0">Monitor performance, sales, users, and support from one
+                            clean workspace.</p>
                     </div>
-                    <!-- /chart-default -->
-                    <!-- chart-default -->
-                    <div class="wg-chart-default">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap14">
-                                <div class="image type-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="52"
-                                        viewBox="0 0 48 52" fill="none">
-                                        <path
-                                            d="M19.1094 2.12943C22.2034 0.343099 26.0154 0.343099 29.1094 2.12943L42.4921 9.85592C45.5861 11.6423 47.4921 14.9435 47.4921 18.5162V33.9692C47.4921 37.5418 45.5861 40.8431 42.4921 42.6294L29.1094 50.3559C26.0154 52.1423 22.2034 52.1423 19.1094 50.3559L5.72669 42.6294C2.63268 40.8431 0.726688 37.5418 0.726688 33.9692V18.5162C0.726688 14.9435 2.63268 11.6423 5.72669 9.85592L19.1094 2.12943Z"
-                                            fill="#FF5200" />
-                                    </svg>
-                                    <i class="icon-dollar-sign"></i>
-                                </div>
-                                <div>
-                                    <div class="body-text mb-2">Total Income</div>
-                                    <h4>$37,802</h4>
-                                </div>
-                            </div>
-                            <div class="box-icon-trending down">
-                                <i class="icon-trending-down"></i>
-                                <div class="body-title number">1.56%</div>
-                            </div>
-                        </div>
-                        <div class="wrap-chart">
-                            <div id="line-chart-2"></div>
-                        </div>
-                    </div>
-                    <!-- /chart-default -->
-                    <!-- chart-default -->
-                    <div class="wg-chart-default">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap14">
-                                <div class="image type-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="52"
-                                        viewBox="0 0 48 52" fill="none">
-                                        <path
-                                            d="M19.1094 2.12943C22.2034 0.343099 26.0154 0.343099 29.1094 2.12943L42.4921 9.85592C45.5861 11.6423 47.4921 14.9435 47.4921 18.5162V33.9692C47.4921 37.5418 45.5861 40.8431 42.4921 42.6294L29.1094 50.3559C26.0154 52.1423 22.2034 52.1423 19.1094 50.3559L5.72669 42.6294C2.63268 40.8431 0.726688 37.5418 0.726688 33.9692V18.5162C0.726688 14.9435 2.63268 11.6423 5.72669 9.85592L19.1094 2.12943Z"
-                                            fill="#CBD5E1" />
-                                    </svg>
-                                    <i class="icon-file"></i>
-                                </div>
-                                <div>
-                                    <div class="body-text mb-2">Orders Paid</div>
-                                    <h4>34,945</h4>
-                                </div>
-                            </div>
-                            <div class="box-icon-trending">
-                                <i class="icon-trending-up"></i>
-                                <div class="body-title number">0.00%</div>
-                            </div>
-                        </div>
-                        <div class="wrap-chart">
-                            <div id="line-chart-3"></div>
-                        </div>
-                    </div>
-                    <!-- /chart-default -->
-                    <!-- chart-default -->
-                    <div class="wg-chart-default">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap14">
-                                <div class="image type-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="52"
-                                        viewBox="0 0 48 52" fill="none">
-                                        <path
-                                            d="M19.1094 2.12943C22.2034 0.343099 26.0154 0.343099 29.1094 2.12943L42.4921 9.85592C45.5861 11.6423 47.4921 14.9435 47.4921 18.5162V33.9692C47.4921 37.5418 45.5861 40.8431 42.4921 42.6294L29.1094 50.3559C26.0154 52.1423 22.2034 52.1423 19.1094 50.3559L5.72669 42.6294C2.63268 40.8431 0.726688 37.5418 0.726688 33.9692V18.5162C0.726688 14.9435 2.63268 11.6423 5.72669 9.85592L19.1094 2.12943Z"
-                                            fill="#2377FC" />
-                                    </svg>
-                                    <i class="icon-users"></i>
-                                </div>
-                                <div>
-                                    <div class="body-text mb-2">Total Visitor</div>
-                                    <h4>34,945</h4>
-                                </div>
-                            </div>
-                            <div class="box-icon-trending up">
-                                <i class="icon-trending-up"></i>
-                                <div class="body-title number">1.56%</div>
-                            </div>
-                        </div>
-                        <div class="wrap-chart">
-                            <div id="line-chart-4"></div>
-                        </div>
-                    </div>
-                    <!-- /chart-default -->
                 </div>
-                <!-- /main-content-wrap -->
+                <div class="heading-actions"><button class="btn btn-outline-secondary btn-sm" type="button"><i
+                            class="bi bi-download" aria-hidden="true"></i>
+                        Export</button><button class="btn btn-primary btn-sm" type="button"><i
+                            class="bi bi-file-earmark-plus" aria-hidden="true"></i> Create Report</button>
+                </div>
             </div>
-            <!-- /main-content-wrap -->
+
+            <section class="row g-3 mt-1" aria-label="Dashboard metrics">
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <article class="metric-card metric-primary">
+                        <div class="metric-top">
+                            <span class="metric-label">Revenue</span>
+                            <span class="metric-icon"><i class="bi bi-currency-dollar" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="metric-value">$48,240</div>
+                        <div class="metric-meta">
+                            <span class="text-success">+12.5%</span>
+                            <span>from last month</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <article class="metric-card metric-success">
+                        <div class="metric-top">
+                            <span class="metric-label">Orders</span>
+                            <span class="metric-icon"><i class="bi bi-bag-check" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="metric-value">1,284</div>
+                        <div class="metric-meta">
+                            <span class="text-success">+8.2%</span>
+                            <span>new orders</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <article class="metric-card metric-warning">
+                        <div class="metric-top">
+                            <span class="metric-label">Customers</span>
+                            <span class="metric-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="metric-value">8,742</div>
+                        <div class="metric-meta">
+                            <span class="text-success">+5.1%</span>
+                            <span>active users</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <article class="metric-card metric-danger">
+                        <div class="metric-top">
+                            <span class="metric-label">Tickets</span>
+                            <span class="metric-icon"><i class="bi bi-life-preserver" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="metric-value">36</div>
+                        <div class="metric-meta">
+                            <span class="text-danger">3 urgent</span>
+                            <span>need review</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="row g-3 mt-1">
+                <div class="col-12 col-xl-12">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div>
+                                <h2 class="h5 mb-1 section-title"><i class="bi bi-graph-up-arrow"
+                                        aria-hidden="true"></i><span>Sales Performance</span></h2>
+                                <p class="text-muted mb-0">Monthly revenue compared with operational targets.
+                                </p>
+                            </div>
+                            <a class="btn btn-light btn-sm" href="charts.html">View Details</a>
+                        </div>
+
+                        <div class="chart-bars" aria-label="Sales performance chart">
+                            <div class="chart-column bar-42"><span></span><small>Jan</small></div>
+                            <div class="chart-column bar-58"><span></span><small>Feb</small></div>
+                            <div class="chart-column bar-51"><span></span><small>Mar</small></div>
+                            <div class="chart-column bar-72"><span></span><small>Apr</small></div>
+                            <div class="chart-column bar-66"><span></span><small>May</small></div>
+                            <div class="chart-column bar-83"><span></span><small>Jun</small></div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
 
         </div>
-        >
-    @endsection
+    </main>
+@endsection

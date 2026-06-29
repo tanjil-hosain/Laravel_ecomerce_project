@@ -1,8 +1,9 @@
-<footer>
-    <div class="bottom-page">
-        <div class="body-text">Copyright © 2024 Remos. Design with</div>
-        <i class="icon-heart"></i>
-        <div class="body-text">by <a href="https://themeforest.net/user/themesflat/portfolio">Themesflat</a> All rights
-            reserved.</div>
-    </div>
-</footer
+            <footer class="admin-footer">
+                <div class="container-fluid px-3 px-lg-4">
+                    <span>Copyright 2026 adminHMD. <br> Developed by <a target="_blank" class="fw-bold text-success"
+                            href="https://github.com/HasanMahmudDev">Md. Hasan Mahmud</a> • Distributed by <a
+                            target="_blank" class="fw-bold text-success" href="https://themewagon.com">ThemeWagon</a>
+                    </span>
+                    <span>Professional dashboard template.</span>
+                </div>
+            </footer>
