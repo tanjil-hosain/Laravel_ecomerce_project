@@ -27,7 +27,7 @@
                     <input class="form-control form-control-sm table-search" type="search" placeholder="Search orders"
                         data-table-search="ordersTable" aria-label="Search orders">
                     <div class="heading-actions text-end">
-                        <a class="btn btn-primary btn-sm" href="{{route('category.create')}}"><i class="bi bi-person-plus"
+                        <a class="btn btn-primary btn-sm" href="{{ route('category.create') }}"><i class="bi bi-person-plus"
                                 aria-hidden="true"></i>
                             Add Category</a>
                     </div>
@@ -43,16 +43,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($cat_items as $cat_item )
-                            @csrf
-                                
-                         
-                            <tr>
-                                <td class="fw-semibold">{{$cat_item->id}}</td>
-                                <td>{{$cat_item->name}}</td>
-                                <td class="text-end"><button class="btn btn-light btn-sm" type="button">View</button></td>
-                            </tr>
-                               @endforeach
+                            @foreach ($cat_items as $cat_item)
+                                @csrf
+
+
+                                <tr>
+                                    <td class="fw-semibold">{{ $cat_item->id }}</td>
+                                    <td>{{ $cat_item->name }}</td>
+                                    <form action="{{route('category.destroy',  $cat_item->id )}}" method="POST" >
+                                        @csrf
+                                        @method('delete')
+                                       
+                                    <td class="text-end"><a href="{{route('category.edit', $cat_item->id )}}" class="btn btn-info " type="button">Edit</a>
+
+                                    
+                                    <button onclick="return confirm('Are you sure Delete this category')" class="btn btn-danger " >Delete</button>
+
+                                    </td>
+                                    </form>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
