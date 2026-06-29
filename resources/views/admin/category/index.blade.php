@@ -43,12 +43,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($cat_items as $cat_item )
+                            @csrf
+                                
+                         
                             <tr>
-                                <td class="fw-semibold">#HMD-2048</td>
-                                <td>Sarah Ahmed</td>
+                                <td class="fw-semibold">{{$cat_item->id}}</td>
+                                <td>{{$cat_item->name}}</td>
                                 <td class="text-end"><button class="btn btn-light btn-sm" type="button">View</button></td>
                             </tr>
-
+                               @endforeach
                         </tbody>
                     </table>
                 </div>
