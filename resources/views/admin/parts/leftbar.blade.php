@@ -18,10 +18,15 @@
                     <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
                     <span class="nav-text">Products</span>
                 </a>
-                <a class="nav-link" href="{{route('category.index')}}">
+                <a class="nav-link" href="{{ route('category.index') }}">
                     <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
                     <span class="nav-text">Category</span>
                 </a>
+                <a class="nav-link" href="{{ route('sub_category.index') }}">
+                    <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
+                    <span class="nav-text">Sub Category</span>
+                </a>
+
 
             </nav>
 

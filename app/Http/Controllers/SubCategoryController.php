@@ -12,7 +12,8 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $sub_cats= Sub_category::all();
+        return view('admin.sub_category.index',['sub_items'=>$sub_cats]);
     }
 
     /**
@@ -20,7 +21,7 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sub_category.create');
     }
 
     /**
@@ -28,7 +29,11 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sub_cats = new Sub_category();
+        $sub_cats->name = $request->name;
+
+        $sub_cats->save();
+        return redirect()->route('sub_category.index')->with('success', 'Suv_category Created Successfully');
     }
 
     /**
@@ -44,7 +49,7 @@ class SubCategoryController extends Controller
      */
     public function edit(Sub_category $sub_category)
     {
-        //
+        return view('admin.sub_category.edit',['sub_item'=>$sub_category]);
     }
 
     /**
@@ -52,7 +57,9 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, Sub_category $sub_category)
     {
-        //
+        $sub_category->name= $request->name;
+        $sub_category->update();
+         return redirect()->route('sub_category.index')->with('success', 'Successfully Updated');
     }
 
     /**
@@ -60,6 +67,7 @@ class SubCategoryController extends Controller
      */
     public function destroy(Sub_category $sub_category)
     {
-        //
+        $sub_category->delete();
+        return redirect()->route('sub_category.index')->with('success', 'Successfully Deleted');
     }
 }
