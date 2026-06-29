@@ -54,7 +54,7 @@
                                         @csrf
                                         @method('delete')
                                        
-                                    <td class="text-end"><a href="{{route('category.edit', $cat_item->id )}}" class="btn btn-info " type="button">Edit</a>
+                                    <td class="text-end"><a href="{{route('category.edit', $cat_item->id )}}" class="btn btn-info " >Edit</a>
 
                                     
                                     <button onclick="return confirm('Are you sure Delete this category')" class="btn btn-danger " >Delete</button>
