@@ -8,17 +8,17 @@
                     <span class="page-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
                     <div>
                         <p class="eyebrow mb-1"> Product Management</p>
-                        <h1 class="h3 mb-1">Update Category</h1>
-                        <p class="text-muted mb-0">Create a new Category</p>
+                        <h1 class="h3 mb-1">Update Sub_Category</h1>
+                        <p class="text-muted mb-0">Update a new Sub_Category</p>
                     </div>
                 </div>
-                <div class="heading-actions"><a class="btn btn-outline-secondary " href="{{ route('category.index') }}"><i
+                <div class="heading-actions"><a class="btn btn-outline-secondary " href="{{ route('sub_category.index') }}"><i
                             class="bi bi-arrow-left" aria-hidden="true"></i> Back to Category</a></div>
             </div>
 
             <section class="row g-3">
                 <div class="col-12 col-xl-8">
-                    <form class="panel needs-validation" action="{{ route('category.update', $cat_item->id) }}"
+                    <form class="panel needs-validation" action="{{ route('sub_category.update', $sub_item->id) }}"
                         method="POST" novalidate>
                         @csrf
                         @method('put')
@@ -31,12 +31,13 @@
                         </div>
                         <div class="row g-3">
                             <div class="col-md-6"><label class="form-label" for="firstName">Category Name</label><input
-                                    class="form-control" id="firstName" type="text" required name="name" value="{{old('name',$cat_item->name )}}">
+                                    class="form-control" id="firstName" type="text" required name="name"
+                                    value="{{ old('name', $sub_item->name) }}">
                                 <div class="invalid-feedback">Category name is required.</div>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-content-end gap-2 mt-4"><a class="btn btn-outline-secondary"
-                                href="{{ route('category.index') }}">Cancel</a><button class="btn btn-primary"
+                                href="{{ route('sub_category.index') }}">Cancel</a><button class="btn btn-primary"
                                 type="submit"><i class="bi bi-person-check" aria-hidden="true"></i> Update
                                 Category</button></div>
                     </form>
