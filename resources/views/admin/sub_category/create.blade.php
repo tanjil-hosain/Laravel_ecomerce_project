@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="heading-actions"><a class="btn btn-outline-secondary " href="{{ route('sub_category.index') }}"><i
-                            class="bi bi-arrow-left" aria-hidden="true"></i> Back to Category</a></div>
+                            class="bi bi-arrow-left" aria-hidden="true"></i> Back to Sub_Category</a></div>
             </div>
 
             <section class="row g-3">
