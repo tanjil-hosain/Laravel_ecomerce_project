@@ -52,11 +52,11 @@
                                     <td class="fw-semibold">{{ $unit_item->id }}</td>
                                     <td>{{ $unit_item->name }}</td>
                                     <td>{{ $unit_item->short_name }}</td>
-                                    <form action="{{ route('sub_category.destroy', $unit_item->id) }}" method="POST">
+                                    <form action="{{ route('unit-list.destroy', $unit_item->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
 
-                                        <td class="text-end"><a href="{{ route('sub_category.edit', $sub_item->id) }}"
+                                        <td class="text-end"><a href="{{ route('unit-list.edit', $unit_item->id) }}"
                                                 class="btn btn-info ">Edit</a>
 
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('unit_lists', function (Blueprint $table) {
             $table->id();
             $table->string('name',100);
-            $table->string('Short_name',10);
+            $table->string('short_name',10);
             $table->timestamps();
         });
     }

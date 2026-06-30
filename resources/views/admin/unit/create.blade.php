@@ -33,8 +33,8 @@
                                     class="form-control" id="firstName" type="text" required name="name">
                                 <div class="invalid-feedback">Unit name is required.</div>
                             </div>
-                            <div class="col-md-6"><label class="form-label" for="firstName">Short Name</label><input
-                                    class="form-control" id="firstName" type="text" required name="short_name">
+                            <div class="col-md-6"><label class="form-label" for="Name">Short Name</label><input
+                                    class="form-control" id="Name" type="text" required name="short_name">
                                 <div class="invalid-feedback">Short name is required.</div>
                             </div>
                         </div>

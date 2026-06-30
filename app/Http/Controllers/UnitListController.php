@@ -32,7 +32,7 @@ class UnitListController extends Controller
     {
         $units = new Unit_list();
         $units->name = $request->name;
-        $units->short_name = $request->name;
+        $units->short_name = $request->short_name;
 
         $units->save();
         return redirect()->route('unit-list.index')->with('success', 'Unit Created Successfully');
@@ -51,7 +51,7 @@ class UnitListController extends Controller
      */
     public function edit(Unit_list $unit_list)
     {
-        return view('admin.unit.edit');
+        return view('admin.unit.edit', ['unit_item'=>$unit_list]);
     }
 
     /**
@@ -59,7 +59,11 @@ class UnitListController extends Controller
      */
     public function update(Request $request, Unit_list $unit_list)
     {
-        //
+              $unit_list->name = $request->name;
+        $unit_list->short_name = $request->short_name;
+
+        $unit_list->update();
+         return redirect()->route('unit-list.index')->with('success', 'Unit Update Successfully');
     }
 
     /**
@@ -67,6 +71,7 @@ class UnitListController extends Controller
      */
     public function destroy(Unit_list $unit_list)
     {
-        //
+        $unit_list->delete();
+         return redirect()->route('unit-list.index')->with('success', 'Unit Deleted Successfully');
     }
 }
