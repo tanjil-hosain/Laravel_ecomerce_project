@@ -14,7 +14,7 @@
                     <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
                     <span class="nav-text">Dashboard</span>
                 </a>
-                <a class="nav-link" href="add-user.html">
+                <a class="nav-link" href="{{route('products.index')}}">
                     <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
                     <span class="nav-text">Products</span>
                 </a>
