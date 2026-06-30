@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\UnitListController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,6 +25,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
     Route::resource('category',CategoryController::class);
     Route::resource('sub_category', SubCategoryController::class);
+    Route::resource('unit-list', UnitListController::class);
 });
 
 require __DIR__.'/auth.php';
