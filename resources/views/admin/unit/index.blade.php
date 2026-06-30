@@ -27,7 +27,7 @@
                     <input class="form-control form-control-sm table-search" type="search" placeholder="Search orders"
                         data-table-search="ordersTable" aria-label="Search orders">
                     <div class="heading-actions text-end">
-                        <a class="btn btn-primary btn-sm" href="{{ route('sub_category.create') }}"><i
+                        <a class="btn btn-primary btn-sm" href="{{ route('unit-list.create') }}"><i
                                 class="bi bi-person-plus" aria-hidden="true"></i>
                             Add Unit</a>
                     </div>

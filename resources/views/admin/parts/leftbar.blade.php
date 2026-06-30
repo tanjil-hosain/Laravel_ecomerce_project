@@ -26,6 +26,10 @@
                     <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
                     <span class="nav-text">Sub Category</span>
                 </a>
+                <a class="nav-link" href="{{ route('unit-list.index') }}">
+                    <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
+                    <span class="nav-text">Unit List</span>
+                </a>
 
 
             </nav>
