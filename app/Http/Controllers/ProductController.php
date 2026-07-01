@@ -67,7 +67,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        
     }
 
     /**
@@ -75,7 +75,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.product.edit');
     }
 
     /**
@@ -83,7 +83,25 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->sku = $request->sku;
+        $product->price = $request->price;
+        $product->buying_price = $request->buying_price;
+        $product->stock = $request->stock;
+        $product->category_id = $request->category_id;
+        $product->sub_category_id = $request->sub_category_id;
+        $product->unit_id = $request->unit_id;
+
+        //image---
+        $rand_number = rand(1,20);
+        $ext_lower = strtolower($request->image->extension());
+        $file_name = $rand_number . time().".".$ext_lower;
+        $request->image->move(public_path('images'), $file_name);
+        $product->image = 'images/'. $file_name;
+        $product->update();
+        return redirect()->route('products.index')->with('succes', 'Product Succesfully Updated');
     }
 
     /**
