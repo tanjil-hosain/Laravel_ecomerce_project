@@ -19,7 +19,7 @@
             </div>
 
             <section class="panel mt-3">
-                                @session('success')
+                @session('success')
                     <div class="alert alert-success" role="alert">
                         {{ $value }}
                     </div>
@@ -64,13 +64,14 @@
                                     <td>{{ $product_item->price }}</td>
                                     <td>{{ $product_item->buying_price }}</td>
                                     <td>{{ $product_item->stock }}</td>
-                                    <form action="{{route('products.destroy',$product_item->id)}}" method="POST">
+                                    <form action="{{ route('products.destroy', $product_item->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <td>View
+                                        <td class="text-end"><a class="btn btn-light" href="{{route('products.show', $product_item->id)}}">View</a>
                                             <a class=" btn btn-info"
                                                 href="{{ route('products.edit', $product_item->id) }}">Edit</a>
-                                                <button class="btn btn-danger" onclick="return confirm('Are you sure? delete this product')">Delete</button>
+                                            <button class="btn btn-danger"
+                                                onclick="return confirm('Are you sure? delete this product')">Delete</button>
                                         </td>
                                     </form>
 
