@@ -19,9 +19,10 @@
 
             <section class="row g-3">
                 <div class="col-12 col-xl-12">
-                    <form class="panel needs-validation" novalidate action="{{ route('products.store') }}" method="POST"
+                    <form class="panel needs-validation" novalidate action="{{ route('products.update',$product->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
+                        @method('put')
                         <div class="panel-header">
                             <div>
                                 <h2 class="h5 mb-1 section-title"><i class="bi bi-person-plus"
@@ -68,9 +69,8 @@
                                     class="form-select" id="team" required name="sub_category_id">
                                     <option value="">Choose sub_category</option>
                                     @foreach ($sub_categorys as $sub_cat)
-                                        
-                                    <option value="{{$sub_cat->id}}"> {{$sub_cat->name}}</option>
-                                     @endforeach
+                                        <option value="{{ $sub_cat->id }}"> {{ $sub_cat->name }}</option>
+                                    @endforeach
 
                                 </select>
                                 <div class="invalid-feedback">Choose a Sub_category.</div>
@@ -79,8 +79,7 @@
                                     class="form-select" id="team" required name="unit_id">
                                     <option value="">Choose unit</option>
                                     @foreach ($units as $unit)
-                                    <option value="{{$unit->id}}">{{$unit->Short_name}}</option>
-                                        
+                                        <option value="{{ $unit->id }}">{{ $unit->Short_name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">Choose a Unit.</div>

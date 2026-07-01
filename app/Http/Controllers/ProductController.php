@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('admin.product.index',['product_items'=>$products]);
+        return view('admin.product.index', ['product_items' => $products]);
     }
 
     /**
@@ -28,9 +28,9 @@ class ProductController extends Controller
         $sub_categorys = Sub_category::all();
         $units = Unit_list::all();
         return view('admin.product.create', [
-            'categorys'=>$categorys,
-            'sub_categorys'=>$sub_categorys,
-            'units'=>$units
+            'categorys' => $categorys,
+            'sub_categorys' => $sub_categorys,
+            'units' => $units
         ]);
     }
 
@@ -39,7 +39,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product=new Product();
+        $product = new Product();
 
         $product->name = $request->name;
         $product->description = $request->description;
@@ -52,30 +52,35 @@ class ProductController extends Controller
         $product->unit_id = $request->unit_id;
 
         //image---
-        $rand_number = rand(1,20);
+        $rand_number = rand(1, 20);
         $ext_lower = strtolower($request->image->extension());
-        $file_name = $rand_number . time().".".$ext_lower;
+        $file_name = $rand_number . time() . "." . $ext_lower;
         $request->image->move(public_path('images'), $file_name);
-        $product->image = 'images/'. $file_name;
+        $product->image = 'images/' . $file_name;
         $product->save();
         return redirect()->route('products.index')->with('succes', 'Product Succesfully Created');
-        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
-    {
-        
-    }
+    public function show(Product $product) {}
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Product $product)
+
     {
-        return view('admin.product.edit', ['product'=>$product]);
+        $categorys = Category::all();
+        $sub_categorys = Sub_category::all();
+        $units = Unit_list::all();
+        return view('admin.product.edit', [
+            'product' => $product,
+            'categorys' => $categorys,
+            'sub_categorys' => $sub_categorys,
+            'units' => $units
+        ]);
     }
 
     /**
@@ -83,7 +88,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        
+
         $product->name = $request->name;
         $product->description = $request->description;
         $product->sku = $request->sku;
@@ -95,11 +100,11 @@ class ProductController extends Controller
         $product->unit_id = $request->unit_id;
 
         //image---
-        $rand_number = rand(1,20);
+        $rand_number = rand(1, 20);
         $ext_lower = strtolower($request->image->extension());
-        $file_name = $rand_number . time().".".$ext_lower;
+        $file_name = $rand_number . time() . "." . $ext_lower;
         $request->image->move(public_path('images'), $file_name);
-        $product->image = 'images/'. $file_name;
+        $product->image = 'images/' . $file_name;
         $product->update();
         return redirect()->route('products.index')->with('succes', 'Product Succesfully Updated');
     }
@@ -111,6 +116,5 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->route('products.index')->with('succes', 'Product Succesfully Deleted');
-
     }
 }
