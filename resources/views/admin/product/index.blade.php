@@ -49,24 +49,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($product_items as $product_item )
-                            @csrf
-                                
-                          
-                            <tr>
-                                <td><img style="width: 100px" src="{{url($product_item->image)}}" alt=""></td>
-                                <td>{{$product_item->name}}</td>
-                                <td>{{$product_item->price}}</td>
-                                <td>{{$product_item->buying_price}}</td>
-                                <td>{{$product_item->stock}}</td>
-                                <form action="">
-                                                                    <td>View
-                                    <a class=" btn btn-info" href="{{route('products.edit', $product_item->id)}}">Edit</a>
-                                </td>
-                                </form>
-                                
-                            </tr>
-                             @endforeach
+                            @foreach ($product_items as $product_item)
+                                @csrf
+
+
+                                <tr>
+                                    <td><img style="width: 100px" src="{{ url($product_item->image) }}" alt=""></td>
+                                    <td>{{ $product_item->name }}</td>
+                                    <td>{{ $product_item->price }}</td>
+                                    <td>{{ $product_item->buying_price }}</td>
+                                    <td>{{ $product_item->stock }}</td>
+                                    <form action="{{route('products.destroy',$product_item->id)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <td>View
+                                            <a class=" btn btn-info"
+                                                href="{{ route('products.edit', $product_item->id) }}">Edit</a>
+                                                <button class="btn btn-danger" onclick="return confirm('Are you sure? delete this product')">Delete</button>
+                                        </td>
+                                    </form>
+
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
