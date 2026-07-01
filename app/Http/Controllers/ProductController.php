@@ -65,7 +65,7 @@ class ProductController extends Controller
         $request->image->move(public_path('images'), $file_name);
         $product->image = 'images/' . $file_name;
         $product->save();
-        return redirect()->route('products.index')->with('succes', 'Product Succesfully Created');
+        return redirect()->route('products.index')->with('success', 'Product Succesfully Created');
     }
 
     /**
@@ -113,7 +113,7 @@ class ProductController extends Controller
         $request->image->move(public_path('images'), $file_name);
         $product->image = 'images/' . $file_name;
         $product->update();
-        return redirect()->route('products.index')->with('succes', 'Product Succesfully Updated');
+        return redirect()->route('products.index')->with('success', 'Product Succesfully Updated');
     }
 
     /**
@@ -122,6 +122,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('products.index')->with('succes', 'Product Succesfully Deleted');
+        return redirect()->route('products.index')->with('success', 'Product Succesfully Deleted');
     }
 }

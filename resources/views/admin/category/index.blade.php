@@ -17,6 +17,11 @@
             </div>
 
             <section class="panel">
+                @session('success')
+                    <div class="alert alert-success" role="alert">
+                        {{ $value }}
+                    </div>
+                @endsession
                 <div class="panel-header">
                     <div>
                         <h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>Category

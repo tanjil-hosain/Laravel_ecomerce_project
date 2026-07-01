@@ -98,7 +98,7 @@
                             </div>
                             <div class="col-12"><label class="form-label" for="notes">Description</label>
                                 <textarea class="form-control" id="notes" rows="4" placeholder="Optional onboarding notes"
-                                    name="description"></textarea>
+                                    name="description">{{old('description')}}</textarea>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-content-end gap-2 mt-4"><a class="btn btn-outline-secondary"

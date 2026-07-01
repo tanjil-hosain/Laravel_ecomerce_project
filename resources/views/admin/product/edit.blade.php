@@ -32,34 +32,34 @@
                         </div>
                         <div class="row g-3">
                             <div class="col-md-6"><label class="form-label" for="firstName">Product name</label><input
-                                    class="form-control" id="firstName" type="text" required name="name">
+                                    class="form-control" id="firstName" type="text" required name="name"  value="{{old('name', $product->name)}}">
                                 <div class="invalid-feedback">Product name is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="lastName">SKU</label><input
-                                    class="form-control" id="lastName" type="text" required name="sku">
+                                    class="form-control" id="lastName" type="text" required name="sku" value="{{old('sku', $product->sku)}}">
                                 <div class="invalid-feedback">SKU is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="email">Price</label><input
-                                    class="form-control" id="email" type="text" required name="price">
+                                    class="form-control" id="email" type="text" required name="price" value="{{old('price', $product->price)}}">
                                 <div class="invalid-feedback">Price is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="phone">Buying Price</label><input
-                                    class="form-control" id="phone" type="tel" required name="buying_price">
+                                    class="form-control" id="phone" type="tel" required name="buying_price" value="{{old('buying_price', $product->buying_price)}}">
                                 <div class="invalid-feedback">Buying Price is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="email">Product Image</label><input
-                                    class="form-control" id="email" type="file" name="image">
+                                    class="form-control" id="email" type="file" name="image" value="{{old('image', $product->image)}}">
 
                             </div>
                             <div class="col-md-6"><label class="form-label" for="email">Stock</label><input
-                                    class="form-control" id="email" type="text" required name="stock">
+                                    class="form-control" id="email" type="text" required name="stock" value="{{old('stock', $product->stock)}}">
                                 <div class="invalid-feedback">Stock is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="role">Category</label><select
                                     class="form-select" id="role" required name="category_id">
                                     <option value="">Choose category</option>
                                     @foreach ($categorys as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{old('category_id', $product->category_id)==$category->id ? 'selected':''}}>{{ $category->name }}</option>
                                     @endforeach
 
                                 </select>
@@ -69,7 +69,7 @@
                                     class="form-select" id="team" required name="sub_category_id">
                                     <option value="">Choose sub_category</option>
                                     @foreach ($sub_categorys as $sub_cat)
-                                        <option value="{{ $sub_cat->id }}"> {{ $sub_cat->name }}</option>
+                                        <option value="{{ $sub_cat->id }}" {{old('sub_category_id', $product->sub_category_id)==$sub_cat->id ? 'selected':''}}> {{ $sub_cat->name }}</option>
                                     @endforeach
 
                                 </select>
@@ -79,19 +79,19 @@
                                     class="form-select" id="team" required name="unit_id">
                                     <option value="">Choose unit</option>
                                     @foreach ($units as $unit)
-                                        <option value="{{ $unit->id }}">{{ $unit->Short_name }}</option>
+                                        <option value="{{ $unit->id }}" {{old('unit_id', $product->unit_id)==$unit->id ? 'selected':''}}>{{ $unit->Short_name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">Choose a Unit.</div>
                             </div>
                             <div class="col-12"><label class="form-label" for="notes">Description</label>
                                 <textarea class="form-control" id="notes" rows="4" placeholder="Optional onboarding notes"
-                                    name="description"></textarea>
+                                    name="description">{{old('description', $product->description)}}</textarea>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-content-end gap-2 mt-4"><a class="btn btn-outline-secondary"
                                 href="{{ route('products.index') }}">Cancel</a><button class="btn btn-primary"
-                                type="submit"><i class="bi bi-person-check" aria-hidden="true"></i> Create
+                                type="submit"><i class="bi bi-person-check" aria-hidden="true"></i> Update
                                 Product</button></div>
                     </form>
                 </div>
