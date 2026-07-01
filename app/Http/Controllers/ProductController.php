@@ -39,6 +39,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        //validation
+        $request->validate([
+            'name'=>'min:4'
+
+        ]);
+
+    
         $product = new Product();
 
         $product->name = $request->name;

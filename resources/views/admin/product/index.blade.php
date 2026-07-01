@@ -19,6 +19,11 @@
             </div>
 
             <section class="panel mt-3">
+                                @session('success')
+                    <div class="alert alert-success" role="alert">
+                        {{ $value }}
+                    </div>
+                @endsession
                 <div class="panel-header">
                     <div>
                         <h2 class="h5 mb-1 section-title">
