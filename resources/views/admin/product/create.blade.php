@@ -80,8 +80,8 @@
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-content-end gap-2 mt-4"><a class="btn btn-outline-secondary"
-                                href="users.html">Cancel</a><button class="btn btn-primary" type="submit"><i
-                                    class="bi bi-person-check" aria-hidden="true"></i> Create User</button></div>
+                                href="{{route('products.index')}}">Cancel</a><button class="btn btn-primary" type="submit"><i
+                                    class="bi bi-person-check" aria-hidden="true"></i> Create Product</button></div>
                     </form>
                 </div>
 

@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="heading-actions">
-      <a class="btn btn-primary btn" href="{{route('products.create')}}"><i class="bi bi-person-plus"
+                    <a class="btn btn-primary btn" href="{{ route('products.create') }}"><i class="bi bi-person-plus"
                             aria-hidden="true"></i>
                         Add Product</a>
                 </div>
@@ -26,55 +26,43 @@
                         </h2>
                         <p class="text-muted mb-0">
                             Search, review, and manage Products.
-                            
+
                         </p>
                     </div>
                     <div class="d-flex flex-wrap gap-2">
-                        <input class="form-control form-control-sm table-search" type="search" placeholder="Search products"
-                            data-table-search="usersTable" aria-label="Search products" />
+                        <input class="form-control form-control-sm table-search" type="search"
+                            placeholder="Search products" data-table-search="usersTable" aria-label="Search products" />
                     </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-middle mb-0" id="usersTable" data-searchable-table>
                         <thead>
                             <tr>
-                                <th scope="col">User</th>
-                                <th scope="col">Role</th>
-                                <th scope="col">Team</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Joined</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Buying_price</th>
+                                <th scope="col">Stock</th>
                                 <th scope="col" class="text-end">
                                     Action
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($product_items as $product_item )
+                            @csrf
+                                
+                          
                             <tr>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-1.jpg"
-                                            alt="Sarah Ahmed" />
-                                        <div>
-                                            <p class="fw-semibold mb-0">
-                                                Sarah Ahmed
-                                            </p>
-                                            <p class="text-muted small mb-0">
-                                                sarah@example.com
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Admin</td>
-                                <td>Operations</td>
-                                <td>
-                                    <span class="badge text-bg-success">Active</span>
-                                </td>
-                                <td>Jan 12, 2026</td>
-                                <td class="text-end">
-                                    <a class="btn btn-light btn-sm" href="user-details.html">View</a>
-                                </td>
+                                <td><img style="width: 100px" src="{{url($product_item->image)}}" alt=""></td>
+                                <td>{{$product_item->name}}</td>
+                                <td>{{$product_item->price}}</td>
+                                <td>{{$product_item->buying_price}}</td>
+                                <td>{{$product_item->stock}}</td>
+                                <td>View</td>
+                                
                             </tr>
-
+                             @endforeach
                         </tbody>
                     </table>
                 </div>
