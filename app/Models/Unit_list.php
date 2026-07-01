@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Unit_list extends Model
 {
     protected $fillable = ['name','short_name'];
+
+    public function product(){
+        return $this->hasMany(Product::class);
+    }
 }

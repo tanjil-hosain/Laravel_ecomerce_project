@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Sub_category;
+use App\Models\Unit_list;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -21,7 +24,14 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $categorys = Category::all();
+        $sub_categorys = Sub_category::all();
+        $units = Unit_list::all();
+        return view('admin.product.create', [
+            'categorys'=>$categorys,
+            'sub_categorys'=>$sub_categorys,
+            'units'=>$units
+        ]);
     }
 
     /**

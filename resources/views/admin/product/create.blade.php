@@ -19,7 +19,8 @@
 
             <section class="row g-3">
                 <div class="col-12 col-xl-12">
-                    <form class="panel needs-validation" novalidate action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+                    <form class="panel needs-validation" novalidate action="{{ route('products.store') }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="panel-header">
                             <div>
@@ -56,7 +57,9 @@
                             <div class="col-md-6"><label class="form-label" for="role">Category</label><select
                                     class="form-select" id="role" required name="category_id">
                                     <option value="">Choose category</option>
-                                    <option value="1">Admin</option>
+                                    @foreach ($categorys as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
 
                                 </select>
                                 <div class="invalid-feedback">Choose a Category.</div>
@@ -64,24 +67,33 @@
                             <div class="col-md-6"><label class="form-label" for="team">Sub_category</label><select
                                     class="form-select" id="team" required name="sub_category_id">
                                     <option value="">Choose sub_category</option>
-                                    <option value="1">Operations</option>
+                                    @foreach ($sub_categorys as $sub_cat)
+                                        
+                                    <option value="{{$sub_cat->id}}"> {{$sub_cat->name}}</option>
+                                     @endforeach
+
                                 </select>
                                 <div class="invalid-feedback">Choose a Sub_category.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="team">Unit</label><select
                                     class="form-select" id="team" required name="unit_id">
                                     <option value="">Choose unit</option>
-                                    <option value="1">Operations</option>
+                                    @foreach ($units as $unit)
+                                    <option value="{{$unit->id}}">{{$unit->Short_name}}</option>
+                                        
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">Choose a Unit.</div>
                             </div>
                             <div class="col-12"><label class="form-label" for="notes">Description</label>
-                                <textarea class="form-control" id="notes" rows="4" placeholder="Optional onboarding notes" name="description"></textarea>
+                                <textarea class="form-control" id="notes" rows="4" placeholder="Optional onboarding notes"
+                                    name="description"></textarea>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-content-end gap-2 mt-4"><a class="btn btn-outline-secondary"
-                                href="{{route('products.index')}}">Cancel</a><button class="btn btn-primary" type="submit"><i
-                                    class="bi bi-person-check" aria-hidden="true"></i> Create Product</button></div>
+                                href="{{ route('products.index') }}">Cancel</a><button class="btn btn-primary"
+                                type="submit"><i class="bi bi-person-check" aria-hidden="true"></i> Create
+                                Product</button></div>
                     </form>
                 </div>
 

@@ -51,7 +51,7 @@
                                 <tr>
                                     <td class="fw-semibold">{{ $unit_item->id }}</td>
                                     <td>{{ $unit_item->name }}</td>
-                                    <td>{{ $unit_item->short_name }}</td>
+                                    <td>{{ $unit_item->Short_name }}</td>
                                     <form action="{{ route('unit-list.destroy', $unit_item->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
