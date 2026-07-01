@@ -1,130 +1,154 @@
-@extends('admin.master');
+@extends('admin.master')
 
 @section('content')
-<body class="bg-light">
+<main class="dashboard-content">
+    <div class="container-fluid px-3 px-lg-4 py-4">
 
-<div class="container py-5">
-
-    <div class="card border-0 shadow-sm">
-
-        <div class="card-header bg-primary text-white py-3">
-            <div class="d-flex justify-content-between align-items-center">
-                <h4 class="mb-0">
+        <!-- Page Heading -->
+        <div class="page-heading">
+            <div class="page-heading-copy">
+                <span class="page-icon">
                     <i class="bi bi-box-seam"></i>
-                    Product Details
-                </h4>
+                </span>
 
-                <a href="#" class="btn btn-light btn-sm">
+                <div>
+                    <p class="eyebrow mb-1">Product Management</p>
+                    <h1 class="h3 mb-1">Product Details</h1>
+                    <p class="text-muted mb-0">
+                        View complete product information.
+                    </p>
+                </div>
+            </div>
+
+            <div class="heading-actions">
+
+                <a href="{{ route('products.index') }}" class="btn btn-outline-secondary btn">
                     <i class="bi bi-arrow-left"></i>
                     Back
                 </a>
+
+                <a href="{{ route('products.edit',$product->id) }}" class="btn btn-primary btn">
+                    <i class="bi bi-pencil"></i>
+                    Edit
+                </a>
+
             </div>
         </div>
 
-        <div class="card-body p-4">
+        <!-- Main Card -->
+        <div class="panel">
 
-            <div class="row">
+            <div class="panel-header">
+                <h2 class="h5 section-title mb-0">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Product Information</span>
+                </h2>
+            </div>
 
-                <!-- Image -->
+            <div class="panel-body">
 
-                <div class="col-lg-4 text-center">
+                <div class="row g-4">
 
-                    <img src="{{url($product->image)}}"
-                        class="img-fluid rounded border p-3 bg-white shadow-sm">
+                    <!-- Image -->
+                    <div class="col-lg-4">
 
-                    <div class="mt-3">
+                        <div class="border rounded-3 p-3 text-center bg-light">
 
-                        <button class="btn btn-primary me-2">
-                            <i class="bi bi-pencil-square"></i>
-                            Edit
-                        </button>
+                            <img src="{{ url($product->image) }}"
+                                class="img-fluid rounded"
+                                style="max-height:320px; object-fit:contain;">
 
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash"></i>
-                            Delete
-                        </button>
+                        </div>
+
+                    </div>
+
+                    <!-- Details -->
+                    <div class="col-lg-8">
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="text-muted small">Product Name</label>
+                                <div class="fw-semibold">{{ $product->name }}</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-muted small">SKU</label>
+                                <div class="fw-semibold">{{ $product->sku }}</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-muted small">Category</label>
+                                <div class="fw-semibold">{{ $product->category->name }}</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-muted small">Sub Category</label>
+                                <div class="fw-semibold">{{ $product->sub_category->name }}</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-muted small">Unit</label>
+                                <div class="fw-semibold">{{ $product->unit->Short_name }}</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-muted small">Stock</label>
+
+                                @if($product->stock>10)
+                                    <div>
+                                        <span class="badge bg-success">
+                                            {{ $product->stock }} Available
+                                        </span>
+                                    </div>
+                                @elseif($product->stock>0)
+                                    <div>
+                                        <span class="badge bg-warning text-dark">
+                                            {{ $product->stock }} Left
+                                        </span>
+                                    </div>
+                                @else
+                                    <div>
+                                        <span class="badge bg-danger">
+                                            Out of Stock
+                                        </span>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-muted small">Buying Price</label>
+                                <div class="fw-bold text-danger">
+                                    ৳ {{ $product->buying_price }}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-muted small">Selling Price</label>
+                                <div class="fw-bold text-success">
+                                    ৳ {{ $product->price }}
+                                </div>
+                            </div>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-                <!-- Details -->
+                <hr class="my-4">
 
-                <div class="col-lg-8">
+                <h5>Description</h5>
 
-                    <h2 class="fw-bold">
-                        {{$product->name}}
-                    </h2>
-
-                    <span class="badge bg-success fs-6 mb-3">
-                        In Stock({{$product->stock}})
-                    </span>
-
-                    <hr>
-
-                    <div class="row">
-
-                        <div class="col-md-6 mb-3">
-                            <strong>SKU</strong><br>
-                            {{$product->sku}}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <strong>Category</strong><br>
-                            {{$product->category->name}}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <strong>Sub Category</strong><br>
-                            {{$product->sub_category->name}}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <strong>Unit</strong><br>
-                           {{$product->unit->Short_name}}
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <strong>Buying Price</strong><br>
-                            <span class="text-danger fw-bold">
-                                {{$product->price}}
-                            </span>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <strong>Selling Price</strong><br>
-                            <span class="text-success fw-bold">
-                                {{$product->buying_price}}
-                            </span>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <strong>Stock</strong><br>
-                            35 Pieces
-                        </div>
-
-
-                    </div>
-
+                <div class="border rounded-3 p-3 bg-light">
+                    {{ $product->description }}
                 </div>
 
             </div>
-
-            <hr class="my-4">
-
-            <h5 class="mb-3">
-                <i class="bi bi-card-text"></i>
-                Description
-            </h5>
-
-            <p class="text-muted mb-0">
-             {{$product->description}}
-            </p>
 
         </div>
 
     </div>
-
-</div>
-
+</main>
 @endsection
